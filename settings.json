@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f HANDOFF.md ] && { echo \"=== HANDOFF.md (bối cảnh dự án — đọc trước khi làm) ===\"; cat HANDOFF.md; } || true",
+            "statusMessage": "Nạp HANDOFF.md vào context"
+          }
+        ]
+      }
+    ]
+  }
+}
