@@ -8,12 +8,13 @@ DST="$HOME/.claude"
 echo "→ Cài từ: $SRC"
 echo "→ Vào:    $DST"
 
-mkdir -p "$DST/agents" "$DST/skills/handoff" "$DST/skills/new-project"
+mkdir -p "$DST/agents" "$DST/skills/handoff" "$DST/skills/new-project" "$DST/skills/codex-review"
 
-cp "$SRC/agents/plan-reviewer.md"     "$DST/agents/plan-reviewer.md"
-cp "$SRC/skills/handoff/SKILL.md"     "$DST/skills/handoff/SKILL.md"
-cp "$SRC/skills/new-project/SKILL.md" "$DST/skills/new-project/SKILL.md"
-echo "✓ Đã cài: agent plan-reviewer, skill /handoff, skill /new-project"
+cp "$SRC/agents/plan-reviewer.md"      "$DST/agents/plan-reviewer.md"
+cp "$SRC/skills/handoff/SKILL.md"      "$DST/skills/handoff/SKILL.md"
+cp "$SRC/skills/new-project/SKILL.md"  "$DST/skills/new-project/SKILL.md"
+cp "$SRC/skills/codex-review/SKILL.md" "$DST/skills/codex-review/SKILL.md"
+echo "✓ Đã cài: agent plan-reviewer, skill /handoff, skill /new-project, skill /codex-review"
 
 # settings.json chứa hook — cẩn thận không đè cấu hình đã có
 if [ ! -f "$DST/settings.json" ]; then
