@@ -1,6 +1,6 @@
 ---
 name: codex-review
-description: Nhờ Codex (CLI `codex exec`) mổ và sửa thẳng vào một file plan CHƯA code — Claude thẩm định diff rồi chốt. Dùng khi user gõ /codex-review <đường dẫn plan>, hoặc nói "nhờ codex review plan", "cho codex mổ kế hoạch", "codex review". Chỉ áp cho bước lập kế hoạch, không áp cho code đã viết.
+description: Nhờ Codex CLI mổ và sửa thẳng vào một file plan CHƯA code — Claude thẩm định diff rồi chốt. Dùng khi user gõ /codex-review <đường dẫn plan>, hoặc nói "nhờ codex review plan", "cho codex mổ kế hoạch", "codex review". Chỉ áp cho bước lập kế hoạch, không áp cho code đã viết.
 ---
 
 # Codex review một file plan
@@ -21,8 +21,13 @@ Lý do: Codex sắp ghi thẳng vào cây, `git diff` là mặt bằng review du
 ## Bước 2 — Codex vừa tìm lỗi vừa sửa
 
 ```
-codex exec -m gpt-5.6-sol -c model_reasoning_effort="high" -s workspace-write "<đề bài dưới>"
+codex exec --ephemeral -m o3 -s workspace-write "<đề bài dưới>"
 ```
+
+Flag giải thích:
+- `--ephemeral`: không lưu session rác vào lịch sử Codex.
+- `-m o3`: model reasoning mạnh; thay bằng model khác nếu user yêu cầu.
+- `-s workspace-write`: cho phép Codex ghi file trong workspace.
 
 Đề bài đưa cho Codex:
 
