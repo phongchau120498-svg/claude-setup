@@ -21,12 +21,12 @@ Lý do: Codex sắp ghi thẳng vào cây, `git diff` là mặt bằng review du
 ## Bước 2 — Codex vừa tìm lỗi vừa sửa
 
 ```
-codex exec --ephemeral -m o3 -s workspace-write "<đề bài dưới>"
+codex exec --ephemeral -m gpt-5.6-sol -s workspace-write "<đề bài dưới>"
 ```
 
 Flag giải thích:
 - `--ephemeral`: không lưu session rác vào lịch sử Codex.
-- `-m o3`: model reasoning mạnh; thay bằng model khác nếu user yêu cầu.
+- `-m gpt-5.6-sol`: model reasoning mạnh nhất hiện tại; thay bằng model khác nếu user yêu cầu.
 - `-s workspace-write`: cho phép Codex ghi file trong workspace.
 
 Đề bài đưa cho Codex:
